@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/donghquinn/go_web/dto"
 	"github.com/donghquinn/go_web/libraries/calculator"
 	"github.com/gin-gonic/gin"
 )
@@ -30,7 +31,9 @@ func CalculateAddController(ctx *gin.Context) {
 
 	value := calculator.Add(float64(num1), float64(num2))
 
-	ctx.JSON(http.StatusOK, gin.H{"addValue": value})
+
+	dto.SetResponse(200, value, ctx)
+	// ctx.JSON(http.StatusOK, gin.H{"addValue": value})
 }
 
 
@@ -54,8 +57,6 @@ func CalculateSumController(ctx *gin.Context) {
 		log.Fatalln(sumErr)
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"sumValue": value})
-	
-	
-	
+		dto.SetResponse(200, value, ctx)
+
 }

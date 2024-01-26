@@ -12,11 +12,14 @@ import (
 )
 
 func main(){
+	// Load env
 	godotenv.Load(".env")
 
+	// Set variable
 	port := os.Getenv("APP_PORT")
 	mode := os.Getenv("ENVIRONMENT")
 
+	// Server Mode
 	gin.SetMode(mode)
 
 	router := gin.Default()
@@ -26,11 +29,14 @@ func main(){
 		Handler: router,
 	}
 
+	fmt.Println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 	fmt.Printf("Server Listening On %s\n", port)
 	fmt.Printf("Server Mode: %s\n", mode)
-
-	module.Handler(router)
+	fmt.Println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	fmt.Println("")
 	
+	module.Handler(router)
+
 	// Graceful ShutDown
 	utilities.GracefulShutDown(server)
 }
