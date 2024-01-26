@@ -17,4 +17,8 @@ func Handler(router *gin.Engine) {
 		calc.POST("/add", ctl.CalculateAddController)
 	}
 
+	user := router.Group("/client")
+	{
+		user.GET("/total", ctl.UserCountControllers)
+	}
 }
