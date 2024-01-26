@@ -27,6 +27,14 @@ go get -u github.com/joho/godotenv
 
 ### Controllers
 
+### DTO
+
+- Data Transfer Object
+    - Formulized Response with throw keys; 
+        - resCode: Response Code - 200 / 40* /500
+        - dataRes: Actual Result of Request
+        - errMsg: There would be Error message, if there were any error happend.
+
 ### libraries
 
 - calculator: Simple functions add / sum
