@@ -17,6 +17,12 @@ go get -u github.com/gin-gonic/gin
         - Structure can be defined with expression `json:"body1" xml:"body1" binding:"required"`
         - can be validate with ShouldBind() method
 
+- godotenv: load .env file
+
+``` shell
+go get -u github.com/joho/godotenv
+```
+
 ## File Structures
 
 ### Controllers
