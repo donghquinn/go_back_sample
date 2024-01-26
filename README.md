@@ -31,13 +31,22 @@ go get -u github.com/steebchen/prisma-client-go
 
 ## Prisma Initiate
 
-- If you get Prisma Module, Please make schema, File name is schema.prisma. Check prisma/schema.prisma as reference on this repository
+- If you get Prisma Module, Please make schema, File name is schema.prisma. Check prisma/schema.prisma as reference on this repository.
 - Run Database you want, and write its dataurl into .env file.
     - format: `[databaseType]://[userName]:[userPassword]@[hostAddr]:[hostPort]/[databaseName]?schema=[public / private]`
+- Then Run command below to initiate prisma client. This command line will create the package name "db"
+
+``` shell
+go run github.com/steebchen/prisma-client-go generate
+```
 
 ## File Structures
 
 ### Controllers
+
+### data
+
+- Prisma Client and Query Modules
 
 ### DTO
 
