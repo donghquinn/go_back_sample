@@ -10,7 +10,7 @@ func Handler(router *gin.Engine) {
 	router.POST("/test", ctl.PostTestController)
 
 	// Grouping
-	calc := router.Group("/caculate")
+	calc := router.Group("/calculate")
 
 	{
 		calc.POST("/sum", ctl.CalculateSumController)

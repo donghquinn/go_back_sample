@@ -30,7 +30,7 @@ func CalculateAddController(ctx *gin.Context) {
 
 	value := calculator.Add(float64(num1), float64(num2))
 
-	ctx.JSON(http.StatusOK, gin.H{"Added Value": value})
+	ctx.JSON(http.StatusOK, gin.H{"addValue": value})
 }
 
 
@@ -54,7 +54,7 @@ func CalculateSumController(ctx *gin.Context) {
 		log.Fatalln(sumErr)
 	}
 
-	ctx.JSON(http.StatusOK, gin.H{"Added Value": value})
+	ctx.JSON(http.StatusOK, gin.H{"sumValue": value})
 	
 	
 	
