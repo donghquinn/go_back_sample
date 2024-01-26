@@ -17,7 +17,7 @@ func PostTestController(ctx *gin.Context) {
 
 	fmt.Println(request)
 
-	if err :=ctx.ShouldBind(&request); err != nil {
+	if err := ctx.ShouldBind(&request); err != nil {
 		ctx.JSON(http.StatusOK, gin.H{"errorMessage": "Required Value is not Included"})
 	} else {
 		name := ctx.PostForm("name")
