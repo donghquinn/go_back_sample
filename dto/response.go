@@ -8,16 +8,6 @@ import (
 // 	data any
 // }
 
-type DataResResult struct {
-	result any
-}
-
-type ResponseType  struct {
-	resCode int
-	dataRes DataResResult
-	errMsg []string
-}
-
 func SetResponse(resCode int, data any, ctx *gin.Context) {
 	// response := ResponseType {
 	// 	resCode: resCode,
