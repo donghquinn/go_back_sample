@@ -1,5 +1,7 @@
 # Go Lang Backend
 
+- Author: donghquinn
+
 ## Dependencies
 
 - gin: Web Framework
@@ -21,4 +23,12 @@ go get -u github.com/gin-gonic/gin
 
 ### libraries
 
+- calculator: Simple functions add / sum
+
+### module
+
+- handler: router Handling Modules
+
 ### utilities
+
+- shutdown: Graceful Shutdown
