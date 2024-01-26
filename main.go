@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/donghquinn/go_web/data"
 	"github.com/donghquinn/go_web/module"
 	"github.com/donghquinn/go_web/utilities"
 	"github.com/gin-gonic/gin"
@@ -34,8 +35,10 @@ func main(){
 	fmt.Printf("Server Mode: %s\n", mode)
 	fmt.Println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 	fmt.Println("")
-	
+
 	module.Handler(router)
+
+	data.GetPrisma()
 
 	// Graceful ShutDown
 	utilities.GracefulShutDown(server)

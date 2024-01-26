@@ -23,6 +23,18 @@ go get -u github.com/gin-gonic/gin
 go get -u github.com/joho/godotenv
 ```
 
+- prisma: Data ORM Client
+
+``` shell
+go get -u github.com/steebchen/prisma-client-go
+```
+
+## Prisma Initiate
+
+- If you get Prisma Module, Please make schema, File name is schema.prisma. Check prisma/schema.prisma as reference on this repository
+- Run Database you want, and write its dataurl into .env file.
+    - format: `[databaseType]://[userName]:[userPassword]@[hostAddr]:[hostPort]/[databaseName]?schema=[public / private]`
+
 ## File Structures
 
 ### Controllers

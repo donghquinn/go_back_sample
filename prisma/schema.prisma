@@ -1,0 +1,98 @@
+
+generator client {
+  provider = "go run github.com/steebchen/prisma-client-go"
+}
+ 
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  uuid     String   @id @unique @default(uuid())
+  profile_image_name String? @unique
+  background_image_name String? @unique
+  name     String
+  email    String
+  password String
+  memo     String?
+  token    String
+  posts    Post[]
+  image_uuid Image[]
+  background BackgroundImage[]
+  comments Comments[]
+  isLogin String
+  sns_instagram String?
+  github_url String?
+  personal_url String[]
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt()
+}
+
+model Post {
+  postNumber Int @id @default(autoincrement())
+  uuid     String    @unique @default(uuid())
+  clientid String
+  author   Client   @relation(fields: [clientid], references: [uuid])
+  comments Comments[]
+  title String
+  post     String
+  category String?
+  tag     String[]
+  imgUrl String[]
+  status String
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt()
+}
+
+model Comments {
+  uuid String @id @default(uuid())
+  postUuid String
+  commentorUuid String
+  comment String
+  commentor Client @relation(fields: [commentorUuid], references: [uuid])
+  post Post  @relation(fields: [postUuid], references: [uuid])
+  created DateTime @default(now())
+  updated DateTime @updatedAt()
+}
+
+model Image {
+  uuid     String   @id @default(uuid())
+  userUuid String
+  client   Client   @relation(fields: [userUuid], references: [uuid])
+  fileName String
+  originalName String @unique
+  size String
+  mime String
+  url String?
+  usage String
+  versionId String?
+  status String
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt()
+
+}
+
+model BackgroundImage {
+  uuid     String   @id @default(uuid())
+  userUuid String
+  client   Client   @relation(fields: [userUuid], references: [uuid])
+  fileName String
+  originalName String @unique
+  size String
+  mime String
+  url String?
+  versionId String?
+  status String
+  created  DateTime @default(now())
+  updated  DateTime @updatedAt()
+
+}
+
+enum RoleEnumType {
+  user
+  admin
+}
