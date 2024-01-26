@@ -7,17 +7,15 @@ import (
 
 	"github.com/donghquinn/go_web/dto"
 	"github.com/donghquinn/go_web/libraries/calculator"
+	"github.com/donghquinn/go_web/types"
 	"github.com/gin-gonic/gin"
 )
 
 // Request Type Definition
-type CalculateRequest struct {
-	Num1 int `form:"num1" json:"num1" xml:"num1" binding:"required"`
-	Num2 int `form:"num2" json:"num2" xml:"num2" binding:"required"`
-}
+
 
 func CalculateAddController(ctx *gin.Context) {
-	var request CalculateRequest
+	var request types.CalculateRequest
 
 	if bodyErr := ctx.ShouldBind(&request); bodyErr != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Required Value is Not Included", "error": bodyErr.Error()})
@@ -39,7 +37,7 @@ func CalculateAddController(ctx *gin.Context) {
 
 
 func CalculateSumController(ctx *gin.Context) {
-	var request CalculateRequest
+	var request types.CalculateRequest
 
 	if bodyErr := ctx.ShouldBind(&request); bodyErr != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Required Value is Not Included","error": bodyErr.Error()})

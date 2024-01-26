@@ -46,3 +46,7 @@ go get -u github.com/joho/godotenv
 ### utilities
 
 - shutdown: Graceful Shutdown
+
+### types
+
+- calc_request: Calculation Request Type Definition
