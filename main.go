@@ -3,22 +3,21 @@ package main
 import (
 	"net/http"
 
-	ctl "github.com/donghquinn/go_web/controllers"
-	"github.com/donghquinn/go_web/utils"
+	"github.com/donghquinn/go_web/module"
+	"github.com/donghquinn/go_web/utilities"
 	"github.com/gin-gonic/gin"
 )
 
 func main(){
 	router := gin.Default()
 
-	router.GET("/", ctl.SayHelloController)
-	router.POST("/test", ctl.PostTestController)
-
+	module.Handler(router)
+	
 	server := &http.Server{
 		Addr:    ":8594",
 		Handler: router,
 	}
 
 	// Graceful ShutDown
-	utils.GracefulShutDown(server)
+	utilities.GracefulShutDown(server)
 }
