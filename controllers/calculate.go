@@ -55,7 +55,5 @@ func CalculateSumController(ctx *gin.Context) {
 	if sumErr != nil {
 		log.Fatalln(sumErr)
 	}
-
-		dto.SetResponse(200, value, ctx)
-
+	dto.SetResponse(200, value, ctx)
 }

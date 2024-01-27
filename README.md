@@ -29,6 +29,11 @@ go get -u github.com/joho/godotenv
 go get -u github.com/steebchen/prisma-client-go
 ```
 
+- validator: Request Validator. You don't need to install package manually.
+    - How to make custom validator: [Korean Reference](https://velog.io/@moonyoung/Golang-%ED%95%84%EB%93%9C-%EA%B2%80%EC%82%AC-validate-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0)
+    - Unlike node.js, you can validate requests by tags.
+    - And of course, you can make custom tags as well: [Korean Reference](https://velog.io/@beardfriend/gogin-%EC%9A%94%EC%B2%AD-Validation%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90)
+
 ## Prisma Initiate
 
 - If you get Prisma Module, Please make schema, File name is schema.prisma. Check prisma/schema.prisma as reference on this repository.
@@ -71,3 +76,5 @@ go run github.com/steebchen/prisma-client-go generate
 ### types
 
 - calc_request: Calculation Request Type Definition
+
+### validators

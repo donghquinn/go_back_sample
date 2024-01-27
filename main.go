@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/donghquinn/go_web/middlewares"
 	"github.com/donghquinn/go_web/module"
 	"github.com/donghquinn/go_web/utilities"
 	"github.com/gin-gonic/gin"
@@ -21,9 +22,9 @@ func main(){
 
 	// Server Mode
 	gin.SetMode(mode)
-
+	
 	router := gin.Default()
-
+	router.Use(middlewares.GlobalMiddleware())
 	server := &http.Server{
 		Addr:    port,
 		Handler: router,
