@@ -19,6 +19,6 @@ func Handler(router *gin.Engine) {
 
 	user := router.Group("/client")
 	{
-		user.GET("/total", ctl.UserCountControllers)
+		user.POST("/total", ctl.UserCountControllers)
 	}
 }

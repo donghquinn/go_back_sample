@@ -14,7 +14,7 @@ import (
 func UserCountControllers(ctx *gin.Context){
 	request := types.UserLoginRequest{}
 
-	if reqErr:=ctx.ShouldBind(&request); reqErr != nil {
+	if reqErr := ctx.ShouldBind(&request); reqErr != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"message": "Required Value is Not Included", "error": reqErr.Error()})
 
 		return
@@ -30,7 +30,7 @@ func UserCountControllers(ctx *gin.Context){
 		log.Fatalln(prismaErr)
 	}
 
-	count := user.GetTotalUsers(dbClient)
+	count := user.GetOneUsers(dbClient, email)
 
 	dto.SetResponse(200, count, ctx)
 }
