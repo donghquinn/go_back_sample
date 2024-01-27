@@ -21,6 +21,7 @@ func GlobalMiddleware() gin.HandlerFunc {
 
 		log.Printf("Check Header Key: %s.\nStart Validate with Secret Key", headerKey)
 
+		// Header Key Matching
 		if headerKey != secretKey {
 			ctx.JSON(
 				http.StatusBadRequest, 

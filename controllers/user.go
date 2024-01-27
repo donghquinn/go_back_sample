@@ -20,8 +20,8 @@ func UserCountControllers(ctx *gin.Context){
 		return
 	}
 
-	email := ctx.PostForm("email")
-	password := ctx.PostForm("password")
+	email := request.Email
+	password := request.Password
 
 	log.Printf("Email: %s, Password: %s\n", email, password)
 	dbClient, prismaErr := data.GetPrisma()
