@@ -30,7 +30,7 @@ func UserCountControllers(ctx *gin.Context){
 		log.Fatalln(prismaErr)
 	}
 
-	count := user.GetOneUsers(dbClient, email)
+	userInfo := user.GetOneUsers(dbClient, email)
 
-	dto.SetResponse(200, count, ctx)
+	dto.SetResponse(200, userInfo, ctx)
 }

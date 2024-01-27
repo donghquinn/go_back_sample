@@ -5,7 +5,6 @@ type DataResResult struct {
 }
 
 type ResponseType struct {
-	ResCode int 	
-	DataRes any 	
-	ErrMsg []string 
+	ResCode int 	`json:"resCode" xml:"resCode"`
+	DataRes any 	`json:"dataRes" xml:"dataRes"`
 }

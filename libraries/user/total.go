@@ -8,7 +8,12 @@ import (
 	"github.com/donghquinn/go_web/prisma/db"
 )
 
-func GetOneUsers(client *db.PrismaClient, email string) *db.ClientModel {
+type QueriedUserInfo struct {
+	Name string `json:"name" xml:"name" binding:"required"`
+	Email string `json:"email" xml:"email" binding:"required"`
+}
+
+func GetOneUsers(client *db.PrismaClient, email string) QueriedUserInfo {
 	ctx := context.Background()
 
 	result, queryErr := client.Client.FindFirst(
@@ -27,5 +32,10 @@ func GetOneUsers(client *db.PrismaClient, email string) *db.ClientModel {
 
 	fmt.Printf("Result: %d", len(result.Name))
 
-	return result
+	queried := QueriedUserInfo {
+		Name: result.Name,
+		Email: result.Email,
+	}
+
+	return queried
 }
